@@ -16,7 +16,6 @@ module.exports.run = async (userdb) => {
 
   router.get("/callback", async (req, res) => {
     if (!req.query.code) return res.send("No code was provided!")
-    const code = req.query.code;
     let json = await fetch(
       'https://discord.com/api/oauth2/token',
       {
@@ -25,9 +24,11 @@ module.exports.run = async (userdb) => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
     );
+    console.log(json)
     if (json.ok === true) {
       let codeinfo = JSON.parse(await json.text());
       let scopes = codeinfo.scope;
+      console.log(codeinfo.access_token)
       let missingscopes = [];
 
       if (scopes.replace(/identify/g, "") == scopes) missingscopes.push("identify");
@@ -44,6 +45,7 @@ module.exports.run = async (userdb) => {
         }
       );
       let userinfo = JSON.parse(await userinfo_raw.text());
+      console.log(userinfo)
 
       if (!userinfo.verified) {
         res.set('Content-Type', 'text/html');
@@ -61,6 +63,7 @@ module.exports.run = async (userdb) => {
       );
   
       let guilds = await guildinfo_raw.json();
+      console.log(guilds)
       if (!Array.isArray(guilds)) {
         console.log("broki")
         return res.sendStatus(500)
