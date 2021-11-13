@@ -6,9 +6,6 @@ const chalk = require("chalk");
 const fetch = require('node-fetch');
 const path = require('path');
 const fs = require("fs");
-const {
-  Resolver
-} = require('dns');
 const sqlite = require("better-sqlite3");
 const session = require("express-session")
 const SqliteStore = require("better-sqlite3-session-store")(session);
@@ -18,19 +15,6 @@ const db = require("./db.js");
 process.db = db;
 
 const settings = require("./settings.json");
-
-const resolver = new Resolver()
-resolver.setServers(['4.4.4.4'])
-
-resolver.resolve4(settings.pterodactyl.domain, (err, addresses) => {
-  console.log(err)
-  console.log(addresses)
-  if (err) {
-    throw new Error({
-      'Pterodactyl Domain Invalid': 'Please check it and make sure it is valid.'
-    })
-  }
-});
 
 const session_db = new sqlite("sessions.db");
 
