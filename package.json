@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dashactyl-Development/Dashactyl.git"
+    "url": "git+https://github.com/Dashactyl-Development/Dashactyl-v2.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Dashactyl-Development/Dashactyl/issues"
+    "url": "https://github.com/Dashactyl-Development/Dashactyl-v2/issues"
   },
-  "homepage": "https://github.com/Dashactyl-Development/Dashactyl#readme",
+  "homepage": "https://github.com/Dashactyl-Development/Dashactyl-v2#readme",
   "dependencies": {
     "@keyv/sqlite": "^2.0.3",
     "autoprefixer": "^10.3.4",
