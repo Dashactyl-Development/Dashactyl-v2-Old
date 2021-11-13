@@ -1,59 +1,44 @@
 {
-    "version": "0.0.1",
-    "defaulttheme": "default",
-    "website": {
-      "port": 3000,
-      "secret": "",
-      "name": ""
-    },
-    "api": {
-        "arcio": {
-            "enabled": true,
-            "widgetid": ""
-        }
-    },
-    "discord": {
-        "client_id": "",
-        "client_secret": "",
-        "guildID": "",
-        "oauth2": {
-            "link": "http://localhost:3000",
-            "callbackpath": "/callback"
-        },
-        "bot": {
-            "token": ""
-        }
-    },
-    "ip": {
-        "trust x-forwarded-for": true,
-        "block": []
-    },
-    "database": {
-        "mysql": {
-          "enabled": false
-        },
-        "mongodb": {
+  "version": "0.0.1",
+  "defaulttheme": "default",
+  "website": {
+    "port": 3000,
+    "secret": "",
+    "secure": false,
+    "name": "Dashactyl"
+  },
+  "api": {
+      "arcio": {
           "enabled": true,
-          "url": "",
-          "dbname": ""
-        },
-        "sqlite": {
-          "enabled": false
-        },
-        "mariadb": {
-          "enabled": false
-        },
-        "json": {
-          "enabled": false
-        }
+          "widgetid": "qfL1h1iZ"
+      }
+  },
+  "discord": {
+      "client_id": "",
+      "client_secret": "",
+      "guildID": "",
+      "oauth2": {
+          "link": "http://localhost:3000",
+          "callbackpath": "/callback"
       },
-    "pterodactyl": {
-        "domain": "",
-        "apikey": ""
-    },
-    "dashboard": {
-        "defaultRam": "512",
-        "defaultCPU": "100",
-        "defaultStorage": "1000"
-    }
+      "bot": {
+          "token": ""
+      }
+  },
+  "ip": {
+      "trust x-forwarded-for": true,
+      "block": []
+  },
+  "database": {
+      "host":"127.0.0.1",
+      "port":"3306",
+      "user":"dashactyl",
+      "password":"dashactyl",
+      "database":"dashactyl"
+  },
+  "pterodactyl": {
+      "domain": "",
+      "apikey": "",
+      "generate_password_on_sign_up":true
+  }
 }
