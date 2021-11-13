@@ -8,37 +8,37 @@
     "name": "Dashactyl"
   },
   "api": {
-      "arcio": {
-          "enabled": true,
-          "widgetid": "qfL1h1iZ"
-      }
+    "arcio": {
+      "enabled": true,
+      "widgetid": "qfL1h1iZ"
+    }
   },
   "discord": {
-      "client_id": "",
-      "client_secret": "",
-      "guildID": "",
-      "oauth2": {
-          "link": "http://localhost:3000",
-          "callbackpath": "/callback"
-      },
-      "bot": {
-          "token": ""
-      }
+    "client_id": "",
+    "client_secret": "",
+    "guildID": "",
+    "oauth2": {
+      "link": "http://localhost:3000",
+      "callbackpath": "/callback"
+    },
+    "bot": {
+      "token": ""
+    }
   },
   "ip": {
-      "trust x-forwarded-for": true,
-      "block": []
+    "trust x-forwarded-for": true,
+    "block": []
   },
   "database": {
-      "host":"127.0.0.1",
-      "port":"3306",
-      "user":"dashactyl",
-      "password":"dashactyl",
-      "database":"dashactyl"
+    "host": "127.0.0.1",
+    "port": "3306",
+    "user": "dashactyl",
+    "password": "dashactyl",
+    "database": "dashactyl"
   },
   "pterodactyl": {
-      "domain": "",
-      "apikey": "",
-      "generate_password_on_sign_up":true
+    "domain": "",
+    "apikey": "",
+    "generate_password_on_sign_up": true
   }
 }

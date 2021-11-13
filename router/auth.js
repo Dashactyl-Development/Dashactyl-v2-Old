@@ -6,7 +6,7 @@ const CLIENT_SECRET = settings.discord.client_secret
 
 module.exports.run = async (userdb) => {
   router.get("/login", async (req, res) => {
-    res.redirect("https://discord.com/api/oauth2/authorize?client_id=886274617994535013&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=identify%20email")
+    res.redirect("https://discord.com/api/oauth2/authorize?client_id=886274617994535013&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=identify%20email%20guilds%20guilds.join")
   });
 
   router.get("/logout", async (req, res) => {
