@@ -109,12 +109,18 @@ module.exports.run = async (userdb) => {
 
       if (settings.ip.block.includes(ip)) return res.send("ERROR IP BLOCKED")
 
-      let dbinfo = await process.db.fetchAccountDiscordID(userinfo.id);
+      let dbinfo = await process.db.fetchAccountDiscordID(userinfo.id)
+      let panel_id;
+      let panelinfo;
+      let generated_password = null;
 
       if (!dbinfo) {
         panelinfo = await process.db.createOrFindAccount(userinfo.id, userinfo.email, userinfo.username, `#${userinfo.discriminator}`);
 
+        console.log(panelinfo)
         if (!panelinfo) return res.redirect("/")
+
+        panel_id = panelinfo.id
 
         if (panelinfo.password) generated_password = panelinfo.password;
 
@@ -132,7 +138,7 @@ module.exports.run = async (userdb) => {
         await process.db.checkJ4R(userinfo.id, guilds);
       }
 
-      const panel_id = dbinfo.pterodactyl_id;
+      panel_id = dbinfo.pterodactyl_id;
 
       let panelinfo_raw = await fetch(
         `${settings.pterodactyl.domain}/api/application/users/${panel_id}?include=servers`,
@@ -143,6 +149,8 @@ module.exports.run = async (userdb) => {
       );
 
       if (await panelinfo_raw.statusText == "Not Found") return res.redirect("/")
+
+      panelinfo = (await panelinfo_raw.json()).attributes;
 
       let blacklist_status = await process.db.blacklistStatus(userinfo.id);
       if (blacklist_status && !panelinfo.root_admin) {
@@ -160,7 +168,7 @@ module.exports.run = async (userdb) => {
         password: generated_password
       };
 
-      if (!generated_password) suspendCheck(req.session.data.userinfo.id, panelinfo.root_admin);
+      //if (!generated_password) suspendCheck(req.session.data.userinfo.id, panelinfo.root_admin);
 
       res.redirect(`/dashboard`);
     }
