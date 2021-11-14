@@ -79,13 +79,6 @@ for (const file of routerFiles) {
   console.log(chalk.blue(`[ROUTER] - ${fileName[0]}.${fileName[1]} has loaded.`))
 }
 
-app.get("/dashboard", function (req, res) {
-  if (!req.session.data || !req.session.data.userinfo) {
-    return res.sendStatus(403)
-  }
-  res.render("dashboard")
-});
-
 const listener = app.listen(settings.website.port, function () {
   console.log(chalk.green("[WEBSITE] The dashboard has successfully loaded on port " + listener.address().port + "."));
 });

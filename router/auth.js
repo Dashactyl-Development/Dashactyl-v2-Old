@@ -56,9 +56,8 @@ module.exports.run = async (userdb) => {
       }
     );
     let guilds = await guildinfo_raw.json();
-    console.log(guilds)
     if (!Array.isArray(guilds)) {
-      console.log("broki")
+      console.log("Unable to get guilds.")
       return res.sendStatus(500)
     }
 
